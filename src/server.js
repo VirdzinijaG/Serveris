@@ -7,6 +7,14 @@ const port = 3000;
 
 app.use(express.static("web")); // tikrina ar web direktorijoje yra failai, pats automatiskai perskaito
 
+app.get("/suma", (req, res) => {
+    const sk1 = parseFloat(req.query.pirmas);
+    const sk2 = parseFloat(req.query.antras);
+    res.send(sk1 + sk2 + "");
+});
+// skaiciu reiksmes nurodomos narsykles adreso laukelyje
+// localhost:3000/suma?pirmas=5&antras=48 // 5 ir 48 galima keisti
+
 // atejus uzklausai get i / suveiks sita funkcija
 app.get('/', (req, res) => {
     res.send('Hello World!') // israsoma narsykleje 
